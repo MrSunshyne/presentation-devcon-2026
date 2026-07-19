@@ -33,6 +33,10 @@ src: ./pages/intro.md
 ---
 
 ---
+src: ./pages/community.md
+---
+
+---
 src: ./pages/io-connect.md
 ---
 
