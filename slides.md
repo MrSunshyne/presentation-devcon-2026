@@ -39,11 +39,11 @@ src: ./pages/history.md
 ---
 
 ---
-src: ./pages/builtin.md
+src: ./pages/task-apis.md
 ---
 
 ---
-src: ./pages/task-apis.md
+src: ./pages/builtin.md
 ---
 
 ---

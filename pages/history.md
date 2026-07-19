@@ -92,3 +92,15 @@ layout: center
 <!--
 This is the turn of the talk. Not AI driving a browser — a model included in the browser, as a platform feature.
 -->
+
+---
+layout: center
+---
+
+# Chrome ships one.
+
+<p class="op-70">A small model, downloaded once, available to any website.</p>
+
+<!--
+Not a plugin, not an extension, not an account. It downloads once into your Chrome profile and every website can call it.
+-->
