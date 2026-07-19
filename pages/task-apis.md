@@ -17,16 +17,7 @@ layout: default
 
 # The family
 
-<div class="mt-4"></div>
-
-| API | Job | Status |
-| --- | --- | --- |
-| `Summarizer` | long text → short text | ✅ stable since 138 |
-| `Translator` | language → language | ✅ stable since 138 |
-| `LanguageDetector` | "what language is this?" | ✅ stable since 138 |
-| `LanguageModel` | prompt it directly | ✅ stable since 148 |
-| `Writer` / `Rewriter` | draft & rephrase | 🟡 in limbo |
-| `Proofreader` | find mistakes | 🟡 in limbo |
+<ApiFamily />
 
 <!--
 Three task APIs have been stable for over a year. The Prompt API — the raw model — went stable on the web in Chrome 148, May 2026. Writer/Rewriter/Proofreader finished origin trials and haven't graduated: on stable Chrome they're simply absent.
