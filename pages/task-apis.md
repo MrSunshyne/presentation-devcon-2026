@@ -69,6 +69,7 @@ layout: default
 
 <!--
 Live. The paragraph is about browser history — headline mode is the crowd-pleaser. Streaming, on-device. Offer to summarize text from the room.
+Easter egg: the type dropdown is a native select styled with appearance: base-select — customizable selects, also new in Chrome. Worth pointing out to the CSS crowd.
 -->
 
 ---

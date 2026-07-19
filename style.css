@@ -503,6 +503,67 @@ html .shiki code {
 }
 
 
+/* ===== Customizable native <select> (Chrome 135+) =====
+   appearance: base-select opts into stylable selects; other browsers
+   ignore it and keep their native picker. Used by the demo components. */
+
+.demo select,
+.demo select::picker(select) {
+  appearance: base-select;
+}
+
+.demo select::picker(select) {
+  border: 3px solid #000;
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.3rem;
+  margin-top: 6px;
+  box-shadow: 4px 4px 0 #000;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.15s,
+    transform 0.15s,
+    overlay 0.15s allow-discrete,
+    display 0.15s allow-discrete;
+}
+
+@starting-style {
+  .demo select::picker(select) {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.demo select option {
+  padding: 0.3rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.demo select option:hover {
+  background: #fffbe6;
+}
+
+.demo select option:checked {
+  font-weight: 700;
+}
+
+.demo select option::checkmark {
+  color: #00d68f;
+}
+
+.demo select::picker-icon {
+  color: #0080ff;
+  transition: rotate 0.2s;
+}
+
+.demo select:open::picker-icon {
+  rotate: 180deg;
+}
+
 .slidev-vclick-target {
   transition: all 500ms ease;
 }
