@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { createSession } from '../composables/builtInAi'
+import { createSession, stateOf } from '../composables/builtInAi'
 
 const text = ref('Où est le prochain arrêt de bus, s\'il vous plaît ?')
 const target = ref('en')
@@ -28,12 +28,30 @@ async function run() {
       status.value = `already in ${LANGS[target.value] ?? target.value} — pick another target`
       return
     }
+
+    // each language pair is its own one-time download — say so instead of
+    // sitting on "translating" while Chrome fetches the pack
+    const pair = { sourceLanguage: top.detectedLanguage, targetLanguage: target.value }
+    const packLabel = `${top.detectedLanguage}→${target.value} language pack`
+    const packState = await stateOf('Translator', pair)
+    if (packState === 'downloadable' || packState === 'downloading') {
+      status.value = `downloading the ${packLabel} — one-time, per pair…`
+    }
+    const hintTimer = setTimeout(() => {
+      if (status.value.includes('language pack'))
+        status.value += ' still going — packs live at chrome://on-device-translation-internals'
+    }, 12000)
+
+    try {
+      translator = await createSession(
+        'Translator',
+        pair,
+        (f) => { status.value = `downloading the ${packLabel}… ${Math.round(f * 100)}%` },
+      )
+    } finally {
+      clearTimeout(hintTimer)
+    }
     status.value = 'translating…'
-    translator = await createSession(
-      'Translator',
-      { sourceLanguage: top.detectedLanguage, targetLanguage: target.value },
-      (f) => { status.value = `downloading ${top.detectedLanguage}→${target.value} pack… ${Math.round(f * 100)}%` },
-    )
     output.value = await translator.translate(text.value)
     status.value = ''
   } catch (err: any) {
