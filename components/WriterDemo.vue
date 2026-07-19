@@ -67,14 +67,14 @@ async function rewrite(opts: { tone?: string, length?: string }, label: string) 
     <input v-model="task" spellcheck="false">
     <div class="controls">
       <button class="go" :disabled="busy" @click="write">Write</button>
+      <template v-if="drafted">
+        <span class="rlabel">rewrite it</span>
+        <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-formal' }, 'more formal')">more formal</button>
+        <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-casual' }, 'more casual')">more casual</button>
+        <button class="alt" :disabled="busy" @click="rewrite({ length: 'shorter' }, 'shorter')">shorter</button>
+        <button class="alt" :disabled="busy" @click="rewrite({ length: 'longer' }, 'longer')">longer</button>
+      </template>
       <span v-if="status" class="status">{{ status }}</span>
-    </div>
-    <div v-if="drafted" class="controls">
-      <span class="rlabel">rewrite it</span>
-      <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-formal' }, 'more formal')">more formal</button>
-      <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-casual' }, 'more casual')">more casual</button>
-      <button class="alt" :disabled="busy" @click="rewrite({ length: 'shorter' }, 'shorter')">shorter</button>
-      <button class="alt" :disabled="busy" @click="rewrite({ length: 'longer' }, 'longer')">longer</button>
     </div>
     <div v-if="output" class="output">{{ output }}</div>
   </div>
@@ -92,7 +92,7 @@ input {
   background: #fff;
   color: #1a1a1a;
 }
-.controls { display: flex; align-items: center; gap: 0.7rem; }
+.controls { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
 .go {
   border: 3px solid #000;
   border-radius: 999px;
@@ -129,7 +129,7 @@ input {
   font-size: 0.95rem;
   color: #1a1a1a;
   white-space: pre-wrap;
-  max-height: 9rem;
+  max-height: 11.5rem;
   overflow: auto;
 }
 html.dark .demo .status { color: #94a3b8; }
