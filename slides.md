@@ -13,8 +13,6 @@ drawings:
   persist: false
 transition: view-transition
 mdc: true
-seoMeta:
-  ogImage: auto
 ---
 
 # WebAI - Exploring agentic capabilities within the browser
