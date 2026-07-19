@@ -1,0 +1,512 @@
+/* Custom Slidev Theme - Colorful Layers */
+
+/* Global font */
+#slideshow {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Dark mode - Adjust background color */
+html.dark .bg-theme-blue {
+  background-color: #004080 !important;
+}
+
+/* Smooth transitions */
+.slidev-layout {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ===== Typography Styles ===== */
+
+/* Default Layout - Standard content typography */
+.layout-default {
+  color: #1a1a1a;
+}
+
+.layout-default h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.layout-default h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+  color: rgba(26, 26, 26, 0.9);
+}
+
+.layout-default p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.layout-default ul {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  padding-left: 2rem;
+}
+
+.layout-default li {
+  margin: 0.5rem 0;
+}
+
+.layout-default code {
+  background: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Intro Layout - Larger, centered typography */
+.layout-intro {
+  color: #1a1a1a;
+}
+
+.layout-intro h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 2rem 0;
+  color: #1a1a1a;
+}
+
+.layout-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0 1.5rem 0;
+  color: rgba(26, 26, 26, 0.9);
+}
+
+.layout-intro p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.layout-intro ul {
+  font-size: 1.5rem;
+  line-height: 2;
+  padding-left: 0;
+  list-style: none;
+}
+
+.layout-intro li {
+  margin: 1rem 0;
+}
+
+.layout-intro code {
+  background: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.layout-intro strong {
+  font-weight: 800;
+  color: #0080FF;
+}
+
+/* Two-Column Layout - Left side (on white card) */
+.layout-two-cols-left {
+  color: #1a1a1a;
+}
+
+.layout-two-cols-left h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #1a1a1a;
+}
+
+.layout-two-cols-left h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.8rem 0;
+  color: rgba(26, 26, 26, 0.9);
+}
+
+.layout-two-cols-left p {
+  font-size: 1.3rem;
+  margin: 0.8rem 0;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.layout-two-cols-left ul {
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+}
+
+.layout-two-cols-left li {
+  margin: 0.5rem 0;
+}
+
+.layout-two-cols-left code {
+  background: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #1a1a1a;
+}
+
+/* Two-Column Layout - Right side (on blue background) */
+.layout-two-cols-right h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+  color: white;
+}
+
+.layout-two-cols-right h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.layout-two-cols-right p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.layout-two-cols-right ul {
+  font-size: 1.5rem;
+  padding-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.layout-two-cols-right li {
+  margin: 0.6rem 0;
+}
+
+.layout-two-cols-right code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.layout-two-cols-right pre {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.layout-two-cols-right strong {
+  font-weight: 800;
+  color: #FFD700;
+}
+
+/* Image-Right Layout - Content on left (white card) */
+.layout-image-right {
+  color: #1a1a1a;
+}
+
+.layout-image-right h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #1a1a1a;
+}
+
+.layout-image-right h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.8rem 0;
+  color: rgba(26, 26, 26, 0.9);
+}
+
+.layout-image-right p {
+  font-size: 1.3rem;
+  margin: 0.8rem 0;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.layout-image-right ul {
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+}
+
+.layout-image-right li {
+  margin: 0.5rem 0;
+}
+
+.layout-image-right code {
+  background: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #1a1a1a;
+}
+
+.layout-image-right strong {
+  font-weight: 800;
+  color: #0080FF;
+}
+
+/* Center Layout - Content centered on blue background */
+.layout-center {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.layout-center h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0 0 1.5rem 0;
+  color: white;
+}
+
+.layout-center h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.layout-center h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1rem 0 0.8rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.layout-center p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.layout-center ul {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.layout-center li {
+  margin: 0.8rem 0;
+}
+
+.layout-center code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.layout-center pre {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem auto;
+  text-align: left;
+  max-width: 800px;
+}
+
+.layout-center strong {
+  font-weight: 800;
+  color: #FFD700;
+}
+
+.layout-center a {
+  color: #00D4FF;
+  text-decoration: underline;
+}
+
+/* ===== Dark Mode Styles ===== */
+
+/* Card color adjustments for dark mode */
+html.dark .bg-white {
+  background-color: #1e293b !important;
+}
+
+html.dark .bg-theme-orange {
+  background-color: #c74e33 !important;
+}
+
+html.dark .bg-theme-yellow {
+  background-color: #b8a500 !important;
+}
+
+/* Default Layout - Dark Mode */
+html.dark .layout-default {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-default h1 {
+  color: #f1f5f9;
+}
+
+html.dark .layout-default h2 {
+  color: rgba(241, 245, 249, 0.9);
+}
+
+html.dark .layout-default p {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-default code {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+/* Intro Layout - Dark Mode */
+html.dark .layout-intro {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-intro h1 {
+  color: #f1f5f9;
+}
+
+html.dark .layout-intro h2 {
+  color: rgba(241, 245, 249, 0.9);
+}
+
+html.dark .layout-intro p {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-intro code {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+html.dark .layout-intro strong {
+  color: #60a5fa;
+}
+
+/* Two-Column Layout Left - Dark Mode */
+html.dark .layout-two-cols-left {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-two-cols-left h1 {
+  color: #f1f5f9;
+}
+
+html.dark .layout-two-cols-left h2 {
+  color: rgba(241, 245, 249, 0.9);
+}
+
+html.dark .layout-two-cols-left p {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-two-cols-left code {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+/* Two-Column Layout Right - Dark Mode (on darker blue) */
+html.dark .layout-two-cols-right h1,
+html.dark .layout-two-cols-right h2,
+html.dark .layout-two-cols-right p,
+html.dark .layout-two-cols-right ul,
+html.dark .layout-two-cols-right li {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+html.dark .layout-two-cols-right code {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.dark .layout-two-cols-right pre {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Image-Right Layout - Dark Mode */
+html.dark .layout-image-right {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-image-right h1 {
+  color: #f1f5f9;
+}
+
+html.dark .layout-image-right h2 {
+  color: rgba(241, 245, 249, 0.9);
+}
+
+html.dark .layout-image-right p {
+  color: rgba(241, 245, 249, 0.8);
+}
+
+html.dark .layout-image-right code {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+html.dark .layout-image-right strong {
+  color: #60a5fa;
+}
+
+/* Center Layout - Dark Mode */
+html.dark .layout-center {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+html.dark .layout-center h1 {
+  color: white;
+}
+
+html.dark .layout-center h2,
+html.dark .layout-center h3 {
+  color: rgba(255, 255, 255, 0.98);
+}
+
+html.dark .layout-center code {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.dark .layout-center pre {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+html.dark .layout-center a {
+  color: #60a5fa;
+}
+
+html.dark .shiki code {
+  background: none;
+}
+
+html .shiki code {
+  background: none;
+}
+
+
+.slidev-vclick-target {
+  transition: all 500ms ease;
+}
+
+.slidev-vclick-hidden {
+  transform: translateY(-100%);
+}
