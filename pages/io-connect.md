@@ -3,7 +3,7 @@ layout: image
 image: images/IMG_7613.JPG
 ---
 
-<div class="photo-caption">Google I/O Connect — Berlin</div>
+<div class="photo-caption">Google I/O Connect - Berlin</div>
 
 <style>
 .photo-caption {
@@ -45,7 +45,7 @@ image: images/IMG_7604.jpeg
 </style>
 
 <!--
-The Frontend track — packed room, and a lot of it was about what's in this talk.
+The Frontend track - packed room, and a lot of it was about what's in this talk.
 -->
 
 ---
@@ -53,7 +53,7 @@ layout: image
 image: images/IMG_7619.jpeg
 ---
 
-<div class="photo-caption">Paul Kinlan — "What's new in the web"</div>
+<div class="photo-caption">Paul Kinlan - "What's new in the web"</div>
 
 <style>
 .photo-caption {
@@ -70,5 +70,5 @@ image: images/IMG_7619.jpeg
 </style>
 
 <!--
-Paul Kinlan leads Chrome DevRel — much of what follows is what his team shipped this year.
+Paul Kinlan leads Chrome DevRel - much of what follows is what his team shipped this year.
 -->

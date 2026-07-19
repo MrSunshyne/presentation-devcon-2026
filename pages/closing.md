@@ -22,9 +22,9 @@ layout: default
 
 <div class="mt-6"></div>
 
-- **Chrome 157** — WebMCP's target to ship
-- Writer / Rewriter / Proofreader — graduation pending
-- `github.com/webmachinelearning` — where it all incubates
+- **Chrome 157** - WebMCP's target to ship
+- Writer / Rewriter / Proofreader - graduation pending
+- `github.com/webmachinelearning` - where it all incubates
 
 <!--
 Everything in this talk is moving. The origin trial ends at 156; if the TAG review and the WebKit objections don't derail it, WebMCP ships this year.
@@ -55,10 +55,10 @@ Every demo in this talk is a public repo you can run with a static file server. 
 layout: center
 ---
 
-# Mersi ! 🇲🇺
+# Questions ?
 
 <p class="op-70">Sandeep Ramgolam · <strong>@MrSunshyne</strong> · sandeep.ramgolam.com</p>
 
 <!--
-Questions — or come find me, I have dholl puri opinions.
+Questions - or come find me, I have dholl puri opinions.
 -->

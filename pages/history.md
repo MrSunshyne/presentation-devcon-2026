@@ -59,20 +59,20 @@ layout: center
 </ul>
 
 <!--
-LLMs gave software reasoning — but over HTTP. Latency, cost, and your data leaves the machine.
+LLMs gave software reasoning - but over HTTP. Latency, cost, and your data leaves the machine.
 -->
 
 ---
 layout: default
 ---
 
-# 2025 — the AI browser wave
+# 2025 - the AI browser wave
 
 <div class="mt-8"></div>
 
-- **Comet** — Perplexity
-- **Atlas** — OpenAI
-- **Dia** — The Browser Company
+- **Comet** - Perplexity
+- **Atlas** - OpenAI
+- **Dia** - The Browser Company
 - ...and Copilot Mode, Neon, and more
 
 <div v-click class="mt-10 text-2xl font-bold text-theme-orange">
@@ -80,7 +80,7 @@ All of them talk to a model in the cloud.
 </div>
 
 <!--
-Last year every AI company shipped a browser. Ask the room who tried one. Common trait: the model is remote — the browser is just the steering wheel.
+Last year every AI company shipped a browser. Ask the room who tried one. Common trait: the model is remote - the browser is just the steering wheel.
 -->
 
 ---
@@ -90,14 +90,14 @@ layout: center
 # What if the model shipped <span class="text-theme-yellow">with</span> the browser?
 
 <!--
-This is the turn of the talk. Not AI driving a browser — a model included in the browser, as a platform feature.
+This is the turn of the talk. Not AI driving a browser - a model included in the browser, as a platform feature.
 -->
 
 ---
 layout: center
 ---
 
-# Chrome ships one.
+# Chrome ships one !
 
 <p class="op-70">A small model, downloaded once, available to any website.</p>
 

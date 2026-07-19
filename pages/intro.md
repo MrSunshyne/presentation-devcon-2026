@@ -51,5 +51,5 @@ image: images/sandeep-2.png
 </div>
 
 <!--
-Quick intro — keep it short, the good stuff is ahead.
+Quick intro - keep it short, the good stuff is ahead.
 -->

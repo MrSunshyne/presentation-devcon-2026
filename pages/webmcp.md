@@ -6,7 +6,7 @@ layout: center
 # The next user of your website is an agent {.inline-block.view-transition-title}
 
 <!--
-Second act — same title as my blog post on this. Agents already browse: they book, compare, order, fill forms. The question is what we give them to work with.
+Second act - same title as my blog post on this. Agents already browse: they book, compare, order, fill forms. The question is what we give them to work with.
 -->
 
 ---
@@ -26,7 +26,7 @@ Thousands of tokens to press one button.
 </div>
 
 <!--
-Vision-based agents drive sites like a robot holding a mouse. Slow, brittle, expensive — and invisible to you as the site owner.
+Vision-based agents drive sites like a robot holding a mouse. Slow, brittle, expensive - and invisible to you as the site owner.
 -->
 
 ---
@@ -35,7 +35,7 @@ layout: center
 
 # WebMCP
 
-<p class="op-70">Your page registers <strong>tools</strong> — typed functions an agent can call.</p>
+<p class="op-70">Your page registers <strong>tools</strong> - typed functions an agent can call.</p>
 
 <p class="mt-6 op-50 text-base">Google + Microsoft · origin trial in Chrome 149 → 156 · target: 157</p>
 
@@ -69,7 +69,7 @@ await document.modelContext.registerTool({
 ```
 
 <!--
-The imperative API. Name, description, JSON schema, execute. The description is literally the prompt the agent reads. Note: document.modelContext — early articles say navigator.modelContext, already renamed. That's how young this is.
+The imperative API. Name, description, JSON schema, execute. The description is literally the prompt the agent reads. Note: document.modelContext - early articles say navigator.modelContext, already renamed. That's how young this is.
 -->
 
 ---
@@ -97,7 +97,7 @@ form:tool-form-active { outline: 3px solid gold; }
 </div>
 
 <!--
-The declarative API: three attributes turn a form you already have into a tool. And there's a CSS pseudo-class to show when an AGENT is using your form — agent activity as a styling concern. My favourite detail in the whole spec.
+The declarative API: three attributes turn a form you already have into a tool. And there's a CSS pseudo-class to show when an AGENT is using your form - agent activity as a styling concern. My favourite detail in the whole spec.
 -->
 
 ---
@@ -109,7 +109,7 @@ layout: default
 <DeckToolsStatus />
 
 <!--
-Live moment: the slides you're watching registered their own WebMCP tools when they loaded. With the Model Context Tool Inspector extension I can type "go to the summarizer slide" and the deck obeys. If WebMCP is off in this browser the panel says so — flag: enable-webmcp-testing.
+Live moment: the slides you're watching registered their own WebMCP tools when they loaded. With the Model Context Tool Inspector extension I can type "go to the summarizer slide" and the deck obeys. If WebMCP is off in this browser the panel says so - flag: enable-webmcp-testing.
 -->
 
 ---
@@ -121,7 +121,7 @@ layout: default
 <div class="mt-6"></div>
 
 - the agent inherits your **logged-in session**
-- tool descriptions are **prompts** — poisoned ones hijack agents
+- tool descriptions are **prompts** - poisoned ones hijack agents
 - a tool named `finalizeCart` can do anything it wants
 
 <div v-click class="mt-8 text-2xl font-bold text-theme-orange">
@@ -143,7 +143,7 @@ layout: center
 <p v-click class="mt-8 text-theme-yellow font-bold text-3xl">Nothing leaves the machine.</p>
 
 <!--
-The finale setup: an agent built from parts the browser already ships. Prompt API for reasoning, WebMCP tools for acting. No server, no API key — works in airplane mode.
+The finale setup: an agent built from parts the browser already ships. Prompt API for reasoning, WebMCP tools for acting. No server, no API key - works in airplane mode.
 -->
 
 ---
@@ -155,7 +155,7 @@ layout: default
 <AgentStand />
 
 <!--
-The dholl puri stand. Type an order in Creole or English — "2 dholl puri ek enn alouda" — and the on-device model parses it into tool calls against the same WebMCP tools an external agent would use. Schema-constrained output, so the JSON is always valid. Then kill the Wi-Fi and do it again.
+The dholl puri stand. Type an order in Creole or English - "2 dholl puri ek enn alouda" - and the on-device model parses it into tool calls against the same WebMCP tools an external agent would use. Schema-constrained output, so the JSON is always valid. Then kill the Wi-Fi and do it again.
 -->
 
 ---
@@ -163,7 +163,7 @@ layout: default
 class: big-code
 ---
 
-# The whole agent — three lines
+# The whole agent - three lines
 
 <div class="mt-6"></div>
 
@@ -178,5 +178,5 @@ JSON.parse(reply).actions.forEach(addToOrder);
 ```
 
 <!--
-The finale, minus plumbing: responseConstraint takes a JSON schema, so the reply always parses — no "please answer in JSON" begging. Brain (Prompt API), hands (the tools), zero network.
+The finale, minus plumbing: responseConstraint takes a JSON schema, so the reply always parses - no "please answer in JSON" begging. Brain (Prompt API), hands (the tools), zero network.
 -->

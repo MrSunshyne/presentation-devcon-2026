@@ -3,7 +3,7 @@ layout: image
 image: images/meetup-beach.webp
 ---
 
-<div class="photo-caption">Coders.mu — the local dev community</div>
+<div class="photo-caption">Coders.mu - the local dev community</div>
 
 <style>
 .photo-caption {
@@ -20,7 +20,7 @@ image: images/meetup-beach.webp
 </style>
 
 <!--
-The communities I organize — this is the cloud native crew at the beach.
+The communities I organize - this is the cloud native crew at the beach.
 -->
 
 ---
@@ -38,5 +38,5 @@ image: images/meetup-astek.jpg
 ---
 
 <!--
-Meetup at Astek. Join us — the QR is coming right up.
+Meetup at Astek. Join us - the QR is coming right up.
 -->
