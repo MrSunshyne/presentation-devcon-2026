@@ -26,7 +26,7 @@ if (!text.trim()) {
 } else if (await Summarizer.availability() === 'unavailable') {
   console.log('Summarizer is unavailable on this machine');
 } else {
-  const summarizer = await Summarizer.create({ type: '${type.value}', format: 'plain-text', length: 'short' });
+  const summarizer = await Summarizer.create({ type: '${type.value}', format: 'plain-text', length: 'short', outputLanguage: 'en' });
   console.log(await summarizer.summarize(text));
   summarizer.destroy();
 }`
@@ -47,7 +47,7 @@ async function run() {
   try {
     summarizer = await createSession(
       'Summarizer',
-      { type: type.value, format: 'plain-text', length: 'short' },
+      { type: type.value, format: 'plain-text', length: 'short', outputLanguage: 'en' },
       (f) => { status.value = `downloading model… ${Math.round(f * 100)}%` },
     )
     status.value = 'summarizing on-device…'
