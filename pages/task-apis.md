@@ -89,6 +89,18 @@ Live. Two APIs chained: detect the language (with confidence), then translate to
 layout: default
 ---
 
+# Writer & Rewriter
+
+<WriterDemo />
+
+<!--
+These two run here because of a chrome://flags entry — the audience's stable Chrome doesn't even have the globals. Write the invite, then flip it formal / casual. The next slide explains the trick.
+-->
+
+---
+layout: default
+---
+
 # The ones in limbo
 
 <div class="mt-6"></div>
