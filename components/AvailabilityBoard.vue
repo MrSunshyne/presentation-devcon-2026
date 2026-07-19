@@ -22,14 +22,21 @@ const CHECKS: Check[] = [
 const states = reactive<Record<string, AiState>>({})
 const progress = reactive<Record<string, number>>({})
 const webmcp = ref(false)
+const stalePolls = ref(0)
 let timer: ReturnType<typeof setTimeout> | undefined
 
 async function refresh() {
   for (const c of CHECKS) states[c.key] = await stateOf(c.key, c.args)
   webmcp.value = typeof document !== 'undefined' && 'modelContext' in document
   clearTimeout(timer)
-  if (Object.values(states).includes('downloading'))
+  if (Object.values(states).includes('downloading')) {
+    // Chrome's component updater can idle for a long time in this state —
+    // count the polls so the board can explain itself instead of looking stuck.
+    stalePolls.value++
     timer = setTimeout(refresh, 4000)
+  } else {
+    stalePolls.value = 0
+  }
 }
 
 // A chip that says "downloadable" can fetch its model on click —
@@ -73,6 +80,10 @@ onUnmounted(() => clearTimeout(timer))
       </div>
     </div>
     <p class="hint">Feature detection, live — a <em>downloadable</em> chip starts its model download when clicked.</p>
+    <p v-if="stalePolls >= 3" class="hint stuck">
+      <em>downloading</em> for a while? Chrome's updater fetches lazily and can idle at 0% —
+      force it at <code>chrome://components</code> → “Optimization Guide On Device Model” → Check for update.
+    </p>
   </div>
 </template>
 
@@ -107,6 +118,9 @@ onUnmounted(() => clearTimeout(timer))
 .chip[data-state='missing'] .dot { background: #e5e7eb; }
 .chip[data-state='missing'] .state { color: #b91c1c; }
 .hint { margin-top: 0.9rem; font-size: 0.85rem; color: #777; }
+.hint.stuck { margin-top: 0.4rem; color: #c74e33; font-weight: 600; }
+.hint.stuck code { background: none; padding: 0; font-weight: 700; }
 html.dark .board .hint { color: #94a3b8; }
+html.dark .board .hint.stuck { color: #ff6b4a; }
 @keyframes pulse { 50% { opacity: 0.35; } }
 </style>
