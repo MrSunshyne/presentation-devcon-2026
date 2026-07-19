@@ -74,9 +74,12 @@ async function runAgent() {
     const reply = await session.prompt(
       `You take orders at a Mauritian street-food stand. The menu (item ids): `
       + MENU.map(m => `${m.id} (Rs ${m.price})`).join(', ')
-      + `. The customer may speak English, French or Mauritian Creole `
-      + `("enn" = 1, "de" = 2, "trwa" = 3). Map their request to order actions, `
-      + `and set checkout to true only if they sound done ordering. Customer said: "${request.value}"`,
+      + `. The customer may speak English, French or Mauritian Creole. `
+      + `Quantities may be words or digits: enn = 1, de = 2, trwa = 3, kat = 4. `
+      + `Example: "2 gato piment ek enn roti chaud" means `
+      + `{"actions":[{"item":"gato-piment","quantity":2},{"item":"roti-chaud","quantity":1}],"checkout":false}. `
+      + `Extract every item with its exact quantity. Set checkout to true only if they sound done ordering. `
+      + `Customer said: "${request.value}"`,
       { responseConstraint: SCHEMA },
     )
     const parsed = JSON.parse(reply)
