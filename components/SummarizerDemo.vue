@@ -12,11 +12,18 @@ const busy = ref(false)
 const copied = ref(false)
 
 // A self-contained snippet for pasting into any Chrome 138+ DevTools console —
-// same text, same summary type as the slide.
+// grabs text from the host page via a selector, summarizes with the type
+// currently picked on the slide, prints the result in the console.
 function snippet() {
-  return `const text = ${JSON.stringify(text.value)};
+  return `// point this at the content you want summarized
+const selector = 'main';
 
-if (await Summarizer.availability() === 'unavailable') {
+// slice keeps it inside the model's input quota
+const text = (document.querySelector(selector)?.innerText ?? '').slice(0, 6000);
+
+if (!text.trim()) {
+  console.log('Nothing found for ' + selector + ' — try another selector');
+} else if (await Summarizer.availability() === 'unavailable') {
   console.log('Summarizer is unavailable on this machine');
 } else {
   const summarizer = await Summarizer.create({ type: '${type.value}', format: 'plain-text', length: 'short' });
