@@ -1,7 +1,6 @@
 ---
 theme: default
 layout: intro
-download: true
 title: WebAI - Exploring agentic capabilities within the browser
 info: |
   ## WebAI - Exploring agentic capabilities within the browser
