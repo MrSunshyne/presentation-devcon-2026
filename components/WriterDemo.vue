@@ -6,6 +6,7 @@ const task = ref('Invite my neighbours over on Saturday to taste my new dholl pu
 const output = ref('')
 const status = ref('')
 const busy = ref(false)
+const drafted = ref(false)
 
 async function write() {
   if (busy.value) return
@@ -23,6 +24,7 @@ async function write() {
     const stream = writer.writeStreaming(task.value)
     for await (const chunk of stream) output.value += chunk
     status.value = ''
+    drafted.value = true
   } catch (err: any) {
     status.value = err?.message ?? String(err)
   } finally {
@@ -31,7 +33,9 @@ async function write() {
   }
 }
 
-async function rewrite(tone: 'more-formal' | 'more-casual') {
+// The Rewriter's whole option surface is three dials, all relative to the
+// input: tone (more-formal/more-casual), length (shorter/longer), format.
+async function rewrite(opts: { tone?: string, length?: string }, label: string) {
   if (busy.value || !output.value) return
   busy.value = true
   status.value = 'creating a Rewriter session…'
@@ -40,10 +44,10 @@ async function rewrite(tone: 'more-formal' | 'more-casual') {
   try {
     rewriter = await createSession(
       'Rewriter',
-      { tone, outputLanguage: 'en' },
+      { ...opts, outputLanguage: 'en' },
       (f) => { status.value = `downloading model… ${Math.round(f * 100)}%` },
     )
-    status.value = `rewriting ${tone.replace('more-', '')}…`
+    status.value = `rewriting: ${label}…`
     output.value = ''
     const stream = rewriter.rewriteStreaming(draft)
     for await (const chunk of stream) output.value += chunk
@@ -63,9 +67,14 @@ async function rewrite(tone: 'more-formal' | 'more-casual') {
     <input v-model="task" spellcheck="false">
     <div class="controls">
       <button class="go" :disabled="busy" @click="write">Write</button>
-      <button class="alt" :disabled="busy || !output" @click="rewrite('more-formal')">more formal</button>
-      <button class="alt" :disabled="busy || !output" @click="rewrite('more-casual')">more casual</button>
       <span v-if="status" class="status">{{ status }}</span>
+    </div>
+    <div v-if="drafted" class="controls">
+      <span class="rlabel">rewrite it</span>
+      <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-formal' }, 'more formal')">more formal</button>
+      <button class="alt" :disabled="busy" @click="rewrite({ tone: 'more-casual' }, 'more casual')">more casual</button>
+      <button class="alt" :disabled="busy" @click="rewrite({ length: 'shorter' }, 'shorter')">shorter</button>
+      <button class="alt" :disabled="busy" @click="rewrite({ length: 'longer' }, 'longer')">longer</button>
     </div>
     <div v-if="output" class="output">{{ output }}</div>
   </div>
@@ -111,6 +120,7 @@ input {
 .alt:hover:not(:disabled) { background: #fffbe6; }
 .alt:disabled { opacity: 0.4; cursor: default; }
 .status { font-size: 0.8rem; color: #666; font-family: monospace; }
+.rlabel { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
 .output {
   border: 3px solid #000;
   border-radius: 12px;
@@ -119,7 +129,7 @@ input {
   font-size: 0.95rem;
   color: #1a1a1a;
   white-space: pre-wrap;
-  max-height: 11rem;
+  max-height: 9rem;
   overflow: auto;
 }
 html.dark .demo .status { color: #94a3b8; }

@@ -94,7 +94,8 @@ layout: default
 <WriterDemo />
 
 <!--
-These two run here because of a chrome://flags entry — the audience's stable Chrome doesn't even have the globals. Write the invite, then flip it formal / casual. The next slide explains the trick.
+These two run here because of a chrome://flags entry — the audience's stable Chrome doesn't even have the globals. Write the invite, then run it through the Rewriter dials.
+The Rewriter's whole surface is three dials, all relative to the input: tone (more-formal / more-casual), length (shorter / longer), format — plus free-form context strings. No "make it rhyme": task APIs are dials, the Prompt API is the steering wheel. The next slide explains why your Chrome doesn't have these.
 -->
 
 ---
