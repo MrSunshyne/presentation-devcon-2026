@@ -75,6 +75,28 @@ Easter egg: the type dropdown is a native select styled with appearance: base-se
 
 ---
 layout: default
+class: big-code
+---
+
+# Summarizer — two lines
+
+<div class="mt-6"></div>
+
+```js
+const summarizer = await Summarizer.create({
+  type: 'headline',
+  outputLanguage: 'en',
+});
+
+const summary = await summarizer.summarize(text);
+```
+
+<!--
+Everything you just watched. The availability check and download progress are the production wrapper — this is the whole API.
+-->
+
+---
+layout: default
 ---
 
 # Language Detector → Translator
@@ -83,6 +105,30 @@ layout: default
 
 <!--
 Live. Two APIs chained: detect the language (with confidence), then translate to the target. Each language pair is its own small download — watch the packs arrive on first use. Multilingual audience = ask for a sentence.
+-->
+
+---
+layout: default
+class: big-code
+---
+
+# Detect &amp; translate — four lines
+
+<div class="mt-6"></div>
+
+```js
+const detector = await LanguageDetector.create();
+const [top] = await detector.detect(text);
+
+const translator = await Translator.create({
+  sourceLanguage: top.detectedLanguage,
+  targetLanguage: 'en',
+});
+const result = await translator.translate(text);
+```
+
+<!--
+The chain from the demo: detector gives a ranked list with confidence, top hit feeds the translator. That's it.
 -->
 
 ---
@@ -96,6 +142,27 @@ layout: default
 <!--
 These two run here because of a chrome://flags entry — the audience's stable Chrome doesn't even have the globals. Write the invite, then run it through the Rewriter dials.
 The Rewriter's whole surface is three dials, all relative to the input: tone (more-formal / more-casual), length (shorter / longer), format — plus free-form context strings. No "make it rhyme": task APIs are dials, the Prompt API is the steering wheel. The next slide explains why your Chrome doesn't have these.
+-->
+
+---
+layout: default
+class: big-code
+---
+
+# Write &amp; rewrite — four lines
+
+<div class="mt-6"></div>
+
+```js
+const writer = await Writer.create({ tone: 'neutral', length: 'short' });
+const draft = await writer.write('Invite my neighbours for dholl puri');
+
+const rewriter = await Rewriter.create({ tone: 'more-formal' });
+const polished = await rewriter.rewrite(draft);
+```
+
+<!--
+Writer authors from a brief with absolute dials; Rewriter nudges existing text with relative ones. Swap tone for length: 'shorter' — same shape.
 -->
 
 ---

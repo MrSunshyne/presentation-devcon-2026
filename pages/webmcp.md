@@ -157,3 +157,26 @@ layout: default
 <!--
 The dholl puri stand. Type an order in Creole or English — "2 dholl puri ek enn alouda" — and the on-device model parses it into tool calls against the same WebMCP tools an external agent would use. Schema-constrained output, so the JSON is always valid. Then kill the Wi-Fi and do it again.
 -->
+
+---
+layout: default
+class: big-code
+---
+
+# The whole agent — three lines
+
+<div class="mt-6"></div>
+
+```js
+const session = await LanguageModel.create();
+
+const reply = await session.prompt(customerRequest, {
+  responseConstraint: menuSchema,
+});
+
+JSON.parse(reply).actions.forEach(addToOrder);
+```
+
+<!--
+The finale, minus plumbing: responseConstraint takes a JSON schema, so the reply always parses — no "please answer in JSON" begging. Brain (Prompt API), hands (the tools), zero network.
+-->

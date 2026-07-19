@@ -503,6 +503,12 @@ html .shiki code {
 }
 
 
+/* Larger code for the minimal-code slides */
+.big-code .slidev-code-wrapper .shiki {
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+}
+
 /* ===== Customizable native <select> (Chrome 135+) =====
    appearance: base-select opts into stylable selects; other browsers
    ignore it and keep their native picker. Used by the demo components. */
