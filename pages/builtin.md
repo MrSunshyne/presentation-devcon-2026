@@ -18,7 +18,7 @@ layout: default
 
 <div class="mt-6"></div>
 
-- <span v-mark.circle.orange="4">**offline**</span> — no network after the one-time download
+- **offline** — no network after the one-time download
 - **local** — your text never leaves the machine
 - **fast** — no round trip, streams in milliseconds
 - **free** — no API key, no tokens, no bill
