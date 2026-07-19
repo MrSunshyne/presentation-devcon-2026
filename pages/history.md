@@ -3,9 +3,9 @@ transition: view-transition
 layout: center
 ---
 
-# The browser was a window {.inline-block.view-transition-title}
+# The browser is a window {.inline-block.view-transition-title}
 
-<p class="op-70">You looked <em>through</em> it.</p>
+<p class="op-70">through which you can see the web.</p>
 
 <!--
 For 30 years the browser was a viewport. The web happened on the other side of the glass.
@@ -16,7 +16,7 @@ transition: view-transition
 layout: center
 ---
 
-# Now it executes tasks {.inline-block.view-transition-title}
+# Can it execute tasks ? {.inline-block.view-transition-title}
 
 <!--
 The shift of the last two years: browsers stopped being just a window. They act on your behalf.
@@ -28,7 +28,7 @@ layout: center
 
 # Browsers always ran programs
 
-<p class="op-70">JavaScript — built in since <strong>1995</strong></p>
+<p class="op-70">JavaScript, built-in since <strong>1995</strong></p>
 
 <!--
 To be fair: browsers have shipped with a programming language for 30 years. Every page is a program.
@@ -50,7 +50,7 @@ JS executes what we wrote. It never understood anything. Reasoning was the missi
 layout: center
 ---
 
-# Then reasoning arrived — as an API
+# That changed recently, brain as an API
 
 <ul>
 <li v-click>a model on someone else's server</li>
