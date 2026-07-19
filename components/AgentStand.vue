@@ -37,7 +37,7 @@ function addToOrder(id: string, quantity = 1) {
 function checkout() {
   if (order.size === 0) return 'the order is empty'
   const number = 100 + Math.floor(Math.random() * 900)
-  confirmation.value = `Order #${number} — Rs ${total.value}. Vini pran li dan 10 minit! 🛵`
+  confirmation.value = `Order #${number} - Rs ${total.value}. Vini pran li dan 10 minit! 🛵`
   order.clear()
   return confirmation.value
 }
@@ -113,7 +113,7 @@ onMounted(async () => {
       inputSchema: { type: 'object', properties: {} },
       annotations: { readOnlyHint: true },
       async execute() {
-        return text(MENU.map(m => `${m.id}: ${m.name} — Rs ${m.price}`).join('; '))
+        return text(MENU.map(m => `${m.id}: ${m.name} - Rs ${m.price}`).join('; '))
       },
     },
     {
@@ -169,7 +169,7 @@ onUnmounted(() => abort.abort())
           </div>
           <div class="line total">Rs {{ total }} <button class="add" @click="note('checkout {} ← human'); checkout()">checkout</button></div>
         </template>
-        <div v-else-if="!confirmation" class="line empty">nothing yet — hungry?</div>
+        <div v-else-if="!confirmation" class="line empty">nothing yet - hungry?</div>
         <div v-if="confirmation" class="line done">{{ confirmation }}</div>
       </div>
     </div>
@@ -185,7 +185,7 @@ onUnmounted(() => abort.abort())
         <p v-if="!log.length" class="log-empty">none yet</p>
       </div>
       <p class="badge" :data-on="webmcpActive">
-        {{ webmcpActive ? 'WebMCP: 3 tools registered for external agents' : 'WebMCP off — the local agent works anyway' }}
+        {{ webmcpActive ? 'WebMCP: 3 tools registered for external agents' : 'WebMCP off - the local agent works anyway' }}
       </p>
     </div>
   </div>

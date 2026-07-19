@@ -20,7 +20,7 @@ const APIS = [
         <carbon-pen v-else-if="api.name === 'Writer / Rewriter'" />
         <carbon-checkmark-outline v-else />
       </div>
-      <code class="name">{{ api.name }}</code>
+      <div class="name">{{ api.name }}</div>
       <p class="job">{{ api.job }}</p>
       <span class="chip">{{ api.status === 'stable' ? `stable since ${api.since}` : 'in limbo' }}</span>
     </div>

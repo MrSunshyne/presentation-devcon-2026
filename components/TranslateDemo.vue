@@ -25,21 +25,21 @@ async function run() {
     detected.value = { lang: top.detectedLanguage, confidence: top.confidence }
 
     if (top.detectedLanguage === target.value) {
-      status.value = `already in ${LANGS[target.value] ?? target.value} — pick another target`
+      status.value = `already in ${LANGS[target.value] ?? target.value} - pick another target`
       return
     }
 
-    // each language pair is its own one-time download — say so instead of
+    // each language pair is its own one-time download - say so instead of
     // sitting on "translating" while Chrome fetches the pack
     const pair = { sourceLanguage: top.detectedLanguage, targetLanguage: target.value }
     const packLabel = `${top.detectedLanguage}→${target.value} language pack`
     const packState = await stateOf('Translator', pair)
     if (packState === 'downloadable' || packState === 'downloading') {
-      status.value = `downloading the ${packLabel} — one-time, per pair…`
+      status.value = `downloading the ${packLabel} - one-time, per pair…`
     }
     const hintTimer = setTimeout(() => {
       if (status.value.includes('language pack'))
-        status.value += ' still going — packs live at chrome://on-device-translation-internals'
+        status.value += ' still going - packs live at chrome://on-device-translation-internals'
     }, 12000)
 
     try {

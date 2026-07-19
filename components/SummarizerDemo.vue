@@ -11,7 +11,7 @@ const status = ref('')
 const busy = ref(false)
 const copied = ref(false)
 
-// A self-contained snippet for pasting into any Chrome 138+ DevTools console —
+// A self-contained snippet for pasting into any Chrome 138+ DevTools console -
 // grabs text from the host page via a selector, summarizes with the type
 // currently picked on the slide, prints the result in the console.
 function snippet() {
@@ -22,7 +22,7 @@ const selector = 'main';
 const text = (document.querySelector(selector)?.innerText ?? '').slice(0, 6000);
 
 if (!text.trim()) {
-  console.log('Nothing found for ' + selector + ' — try another selector');
+  console.log('Nothing found for ' + selector + ' - try another selector');
 } else if (await Summarizer.availability() === 'unavailable') {
   console.log('Summarizer is unavailable on this machine');
 } else {

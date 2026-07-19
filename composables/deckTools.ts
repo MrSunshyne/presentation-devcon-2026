@@ -30,7 +30,7 @@ export async function registerDeckTools(nav: NavLike) {
     deckTools.log.unshift(entry)
     if (deckTools.log.length > 6) deckTools.log.pop()
   }
-  // nav actions resolve through the router — settle before reading the position
+  // nav actions resolve through the router - settle before reading the position
   const position = async () => {
     await new Promise(resolve => setTimeout(resolve, 80))
     return `slide ${toValue(nav.currentPage)} of ${toValue(nav.total)}`

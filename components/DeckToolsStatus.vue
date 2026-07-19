@@ -5,7 +5,7 @@ import { deckTools } from '../composables/deckTools'
 <template>
   <div class="panel" :data-on="deckTools.supported">
     <template v-if="deckTools.supported">
-      <p class="headline">✅ WebMCP is on — this deck registered {{ deckTools.names.length }} tools:</p>
+      <p class="headline">✅ WebMCP is on - this deck registered {{ deckTools.names.length }} tools:</p>
       <div class="tools">
         <code v-for="name in deckTools.names" :key="name">{{ name }}</code>
       </div>
@@ -18,7 +18,7 @@ import { deckTools } from '../composables/deckTools'
     <template v-else>
       <p class="headline">WebMCP isn't available in this browser.</p>
       <p class="hint">
-        Chrome 149+: enable <code>chrome://flags/#enable-webmcp-testing</code> and relaunch —
+        Chrome 149+: enable <code>chrome://flags/#enable-webmcp-testing</code> and relaunch -
         or run the origin trial. The deck registers its tools automatically when it can.
       </p>
     </template>
@@ -48,7 +48,7 @@ import { deckTools } from '../composables/deckTools'
 .log { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .log p { font-size: 0.85rem; font-weight: 700; margin: 0; }
 .log code { background: #ffd700; }
-/* the panel keeps a light background in dark mode — force dark ink over the
+/* the panel keeps a light background in dark mode - force dark ink over the
    theme's light dark-mode paragraph colour */
 html.dark .panel p.headline { color: #1a1a1a; }
 html.dark .panel p.hint { color: #555; }

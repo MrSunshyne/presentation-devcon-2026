@@ -30,7 +30,7 @@ async function refresh() {
   webmcp.value = typeof document !== 'undefined' && 'modelContext' in document
   clearTimeout(timer)
   if (Object.values(states).includes('downloading')) {
-    // Chrome's component updater can idle for a long time in this state —
+    // Chrome's component updater can idle for a long time in this state -
     // count the polls so the board can explain itself instead of looking stuck.
     stalePolls.value++
     timer = setTimeout(refresh, 4000)
@@ -39,7 +39,7 @@ async function refresh() {
   }
 }
 
-// A chip that says "downloadable" can fetch its model on click —
+// A chip that says "downloadable" can fetch its model on click -
 // create() needs the user gesture anyway.
 async function download(c: Check) {
   if (states[c.key] !== 'downloadable') return
@@ -79,9 +79,9 @@ onUnmounted(() => clearTimeout(timer))
         <span class="state">{{ webmcp ? 'available' : 'missing' }}</span>
       </div>
     </div>
-    <p class="hint">Feature detection, live — a <em>downloadable</em> chip starts its model download when clicked.</p>
+    <p class="hint">Feature detection, live - a <em>downloadable</em> chip starts its model download when clicked.</p>
     <p v-if="stalePolls >= 3" class="hint stuck">
-      <em>downloading</em> for a while? Chrome's updater fetches lazily and can idle at 0% —
+      <em>downloading</em> for a while? Chrome's updater fetches lazily and can idle at 0% -
       force it at <code>chrome://components</code> → “Optimization Guide On Device Model” → Check for update.
     </p>
   </div>

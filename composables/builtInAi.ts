@@ -1,6 +1,6 @@
 // Shared plumbing for the built-in AI demo components.
 // Every create() that may trigger a model download must happen inside a user
-// gesture — all demos run behind a button click for that reason.
+// gesture - all demos run behind a button click for that reason.
 
 export type AiState = 'missing' | 'unavailable' | 'downloadable' | 'downloading' | 'available'
 
@@ -24,7 +24,7 @@ export async function createSession(
   onProgress?: (fraction: number) => void,
 ) {
   if (!hasGlobal(name)) {
-    throw new Error(`${name} doesn't exist in this browser — it needs Chrome on desktop (for Writer/Rewriter/Proofreader, a chrome://flags entry).`)
+    throw new Error(`${name} doesn't exist in this browser - it needs Chrome on desktop (for Writer/Rewriter/Proofreader, a chrome://flags entry).`)
   }
   return await (window as any)[name].create({
     ...opts,
