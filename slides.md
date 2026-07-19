@@ -2,9 +2,9 @@
 theme: default
 layout: intro
 download: true
-title: The Browser That Thinks
+title: WebAI - Exploring agentic capabilities within the browser
 info: |
-  ## The Browser That Thinks
+  ## WebAI - Exploring agentic capabilities within the browser
   On-device AI and the agentic web.
 
   By [Sandeep Ramgolam](https://sandeep.ramgolam.com)
@@ -18,20 +18,22 @@ seoMeta:
   ogImage: auto
 ---
 
-# The Browser That Thinks
-
-## On-device AI and the agentic web
+# WebAI - Exploring agentic capabilities within the browser
 
 <div class="mt-8 text-xl opacity-70">
-Sandeep Ramgolam · Developers Conference 2026
+A talk by Sandeep Ramgolam
 </div>
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space to begin <carbon:arrow-right />
+  Developers Conference 2026
 </div>
 
 ---
 src: ./pages/intro.md
+---
+
+---
+src: ./pages/qr.md
 ---
 
 ---
