@@ -69,6 +69,7 @@ layout: default
 
 <!--
 Live. The paragraph is about browser history — headline mode is the crowd-pleaser. Streaming, on-device. Offer to summarize text from the room.
+"copy the code" copies a console-ready snippet with the current text + type — paste it into DevTools in a different window and the summary prints right there. Proves there's no trick: any page, any console, same API. Arm the target console beforehand: Chrome makes you type "allow pasting" the first time.
 Easter egg: the type dropdown is a native select styled with appearance: base-select — customizable selects, also new in Chrome. Worth pointing out to the CSS crowd.
 -->
 

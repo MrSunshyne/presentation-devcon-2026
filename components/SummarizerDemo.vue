@@ -9,6 +9,27 @@ const type = ref<'headline' | 'tldr' | 'key-points' | 'teaser'>('headline')
 const output = ref('')
 const status = ref('')
 const busy = ref(false)
+const copied = ref(false)
+
+// A self-contained snippet for pasting into any Chrome 138+ DevTools console —
+// same text, same summary type as the slide.
+function snippet() {
+  return `const text = ${JSON.stringify(text.value)};
+
+if (await Summarizer.availability() === 'unavailable') {
+  console.log('Summarizer is unavailable on this machine');
+} else {
+  const summarizer = await Summarizer.create({ type: '${type.value}', format: 'plain-text', length: 'short' });
+  console.log(await summarizer.summarize(text));
+  summarizer.destroy();
+}`
+}
+
+async function copySnippet() {
+  await navigator.clipboard.writeText(snippet())
+  copied.value = true
+  setTimeout(() => { copied.value = false }, 1600)
+}
 
 async function run() {
   if (busy.value) return
@@ -46,6 +67,7 @@ async function run() {
         <option value="teaser">teaser</option>
       </select>
       <button class="go" :disabled="busy" @click="run">Summarize</button>
+      <button class="copy" @click="copySnippet">{{ copied ? 'copied ✓' : 'copy the code' }}</button>
       <span v-if="status" class="status">{{ status }}</span>
     </div>
     <div v-if="output" class="output">{{ output }}</div>
@@ -89,6 +111,18 @@ select {
 }
 .go:hover:not(:disabled) { background: #00d68f; }
 .go:disabled { opacity: 0.5; cursor: wait; }
+.copy {
+  border: 3px solid #000;
+  border-radius: 999px;
+  padding: 0.35rem 1.2rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+.copy:hover { background: #fffbe6; }
 .status { font-size: 0.8rem; color: #666; font-family: monospace; }
 .output {
   border: 3px solid #000;
