@@ -1,5 +1,6 @@
 ---
 layout: default
+clicks: 1
 ---
 
 # Agenda
@@ -10,8 +11,9 @@ layout: default
 - the **Prompt API** - a model in your browser
 - the **Task APIs** - summarize, translate, write
 - **WebMCP** - when agents visit your website
-- live demos all the way through
+
+<DemoRain />
 
 <!--
-The plan: a bit of history, then the raw model, then the task-shaped APIs around it, then handing your site over to agents. Everything gets demoed live, on this machine, offline.
+The plan: a bit of history, then the raw model, then the task-shaped APIs around it, then handing your site over to agents. One click: DEMO everywhere - because everything in this talk runs live, on this machine, offline.
 -->
