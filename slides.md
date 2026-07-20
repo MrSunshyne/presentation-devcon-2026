@@ -42,6 +42,10 @@ src: ./pages/qr.md
 ---
 
 ---
+src: ./pages/agenda.md
+---
+
+---
 src: ./pages/history.md
 ---
 
