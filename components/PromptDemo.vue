@@ -7,18 +7,26 @@ const output = ref('')
 const status = ref('')
 const busy = ref(false)
 
-const SCHEMA = {
-  type: 'object',
-  properties: {
-    who: { type: 'string' },
-    when: { type: 'string' },
-    where: { type: 'string' },
+// the constraint is editable on the slide - add a field live and rerun
+const schemaText = ref(`{
+  "type": "object",
+  "properties": {
+    "who":   { "type": "string" },
+    "when":  { "type": "string" },
+    "where": { "type": "string" }
   },
-  required: ['who', 'when', 'where'],
-}
+  "required": ["who", "when", "where"]
+}`)
 
 async function run() {
   if (busy.value) return
+  let schema: unknown
+  try {
+    schema = JSON.parse(schemaText.value)
+  } catch {
+    status.value = 'the schema box is not valid JSON'
+    return
+  }
   busy.value = true
   output.value = ''
   status.value = 'waking the model…'
@@ -28,11 +36,11 @@ async function run() {
       (f) => { status.value = `downloading model… ${Math.round(f * 100)}%` })
     status.value = 'extracting, on-device…'
     const reply = await session.prompt(
-      `Extract the appointment details from this message. It may be English, `
-      + `French or Mauritian Creole ("vandredi" = Friday, "3er" = 3 o'clock, `
-      + `"kot" = at). Answer in English: "when" like "Friday, 3 pm", "where" is `
-      + `just the place name. Message: "${request.value}"`,
-      { responseConstraint: SCHEMA },
+      `Extract the details from this message into the required JSON. The message `
+      + `may be English, French or Mauritian Creole ("vandredi" = Friday, `
+      + `"3er" = 3 o'clock, "kot" = at). Answer in English; times like "Friday, 3 pm"; `
+      + `places as just the place name. Message: "${request.value}"`,
+      { responseConstraint: schema },
     )
     output.value = JSON.stringify(JSON.parse(reply), null, 2)
     status.value = ''
@@ -54,12 +62,8 @@ async function run() {
     </div>
     <div class="boxes">
       <div class="box">
-        <p class="box-title">responseConstraint - a JSON Schema</p>
-        <pre>{
-  "who":   "string",
-  "when":  "string",
-  "where": "string"
-}</pre>
+        <p class="box-title">responseConstraint - edit me</p>
+        <textarea v-model="schemaText" rows="9" spellcheck="false" class="schema-edit" />
       </div>
       <div class="box reply" :data-filled="!!output">
         <p class="box-title">the reply - parses every time</p>
@@ -108,6 +112,17 @@ input {
 .box.reply[data-filled='true'] { background: #e6fff5; }
 .box-title { margin: 0 0 0.4rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
 .box pre { margin: 0; font-size: 0.85rem; line-height: 1.5; color: #1a1a1a; background: none; padding: 0; }
+.schema-edit {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #1a1a1a;
+  resize: none;
+}
 .empty { margin: 0; color: #999; font-style: italic; font-size: 0.85rem; }
 html.dark .demo .status { color: #94a3b8; }
 html.dark .demo .box p.box-title { color: #888; }

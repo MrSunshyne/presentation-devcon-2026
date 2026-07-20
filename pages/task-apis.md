@@ -8,6 +8,7 @@ layout: default
 
 <!--
 Proof the model is really there: LanguageModel, direct access, stable since Chrome 148, no flags. Messy Creole message in, schema-valid JSON out - responseConstraint enforces the schema at generation time, so the reply parses every time. Remember this one: the finale is built on it. Everything that follows is the task-shaped dials around this same model.
+The schema box is editable - add a field live (e.g. "mood": { "enum": ["chill", "formal"] } plus required) and rerun: the mask adapts instantly. The Kreol works because it lives next door to French, the prompt carries a three-word glossary, and the schema turns understanding into fill-in-the-blanks.
 -->
 
 ---
