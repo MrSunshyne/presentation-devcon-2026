@@ -1,4 +1,39 @@
 ---
+layout: default
+---
+
+# Prompt API - the steering wheel
+
+<PromptDemo />
+
+<!--
+Proof the model is really there: LanguageModel, direct access, stable since Chrome 148, no flags. Messy Creole message in, schema-valid JSON out - responseConstraint enforces the schema at generation time, so the reply parses every time. Remember this one: the finale is built on it. Everything that follows is the task-shaped dials around this same model.
+-->
+
+---
+layout: default
+class: big-code
+---
+
+# Schema in, JSON out
+
+<div class="mt-6"></div>
+
+```js
+const session = await LanguageModel.create();
+
+const reply = await session.prompt(message, {
+  responseConstraint: schema,
+});
+
+const data = JSON.parse(reply); // always valid
+```
+
+<!--
+Two lines plus a parse. The schema is a plain JSON Schema object. Also takes images and audio as input on capable hardware - not shown today.
+-->
+
+---
 transition: view-transition
 layout: center
 ---
@@ -183,41 +218,6 @@ Upgrading Chrome makes them <em>disappear</em>, not appear.
 
 <!--
 Fun quirk: on Chrome 149 stable these globals don't exist at all - people assume "newer Chrome = more APIs" and it's the opposite here. Flags bring them back for demos. Lesson: origin-trial APIs are rentals, not purchases.
--->
-
----
-layout: default
----
-
-# Prompt API - the steering wheel
-
-<PromptDemo />
-
-<!--
-The task APIs are dials; this is direct access to the same model. LanguageModel, stable since Chrome 148, no flags. The demo: messy Creole message in, schema-valid JSON out. responseConstraint enforces the schema at generation time - the reply parses every time, no "please answer in JSON" begging. Remember this one: the finale is built on it.
--->
-
----
-layout: default
-class: big-code
----
-
-# Schema in, JSON out
-
-<div class="mt-6"></div>
-
-```js
-const session = await LanguageModel.create();
-
-const reply = await session.prompt(message, {
-  responseConstraint: schema,
-});
-
-const data = JSON.parse(reply); // always valid
-```
-
-<!--
-Two lines plus a parse. The schema is a plain JSON Schema object. Also takes images and audio as input on capable hardware - not shown today.
 -->
 
 ---
