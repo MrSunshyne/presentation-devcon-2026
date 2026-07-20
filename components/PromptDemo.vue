@@ -7,7 +7,13 @@ const output = ref('')
 const status = ref('')
 const busy = ref(false)
 
-// the constraint is editable on the slide - add a field live and rerun
+// both the persona and the contract are editable on the slide
+const systemPrompt = ref(
+  'You extract structured details from short messages. Messages may be in '
+  + 'English, French or Mauritian Creole ("vandredi" = Friday, "3er" = 3 o\'clock, '
+  + '"kot" = at). Answer in English; times like "Friday, 3 pm"; places as just the place name.',
+)
+
 const schemaText = ref(`{
   "type": "object",
   "properties": {
@@ -32,16 +38,13 @@ async function run() {
   status.value = 'waking the model…'
   let session: any
   try {
-    session = await createSession('LanguageModel', {},
-      (f) => { status.value = `downloading model… ${Math.round(f * 100)}%` })
-    status.value = 'extracting, on-device…'
-    const reply = await session.prompt(
-      `Extract the details from this message into the required JSON. The message `
-      + `may be English, French or Mauritian Creole ("vandredi" = Friday, `
-      + `"3er" = 3 o'clock, "kot" = at). Answer in English; times like "Friday, 3 pm"; `
-      + `places as just the place name. Message: "${request.value}"`,
-      { responseConstraint: schema },
+    session = await createSession(
+      'LanguageModel',
+      { initialPrompts: [{ role: 'system', content: systemPrompt.value }] },
+      (f) => { status.value = `downloading model… ${Math.round(f * 100)}%` },
     )
+    status.value = 'extracting, on-device…'
+    const reply = await session.prompt(request.value, { responseConstraint: schema })
     output.value = JSON.stringify(JSON.parse(reply), null, 2)
     status.value = ''
   } catch (err: any) {
@@ -55,11 +58,15 @@ async function run() {
 
 <template>
   <div class="demo">
-    <input v-model="request" spellcheck="false" @keyup.enter="run">
-    <div class="controls">
+    <div class="ask-row">
+      <input v-model="request" spellcheck="false" @keyup.enter="run">
       <button class="go" :disabled="busy" @click="run">Extract</button>
-      <span v-if="status" class="status">{{ status }}</span>
     </div>
+    <span v-if="status" class="status">{{ status }}</span>
+    <details class="box sys">
+      <summary class="box-title">initialPrompts - the system prompt, edit me</summary>
+      <textarea v-model="systemPrompt" rows="3" spellcheck="false" class="schema-edit" />
+    </details>
     <div class="boxes">
       <div class="box">
         <p class="box-title">responseConstraint - edit me</p>
@@ -75,18 +82,18 @@ async function run() {
 </template>
 
 <style scoped>
-.demo { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.demo { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.ask-row { display: flex; gap: 0.6rem; }
 input {
-  width: 100%;
+  flex: 1;
   border: 3px solid #000;
   border-radius: 999px;
-  padding: 0.5rem 1.1rem;
+  padding: 0.45rem 1.1rem;
   font: inherit;
   font-size: 0.95rem;
   background: #fff;
   color: #1a1a1a;
 }
-.controls { display: flex; align-items: center; gap: 0.7rem; }
 .go {
   border: 3px solid #000;
   border-radius: 999px;
@@ -101,16 +108,18 @@ input {
 .go:hover:not(:disabled) { background: #00d68f; }
 .go:disabled { opacity: 0.5; cursor: wait; }
 .status { font-size: 0.8rem; color: #666; font-family: monospace; }
-.boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
 .box {
   border: 3px solid #000;
   border-radius: 12px;
   background: #fff;
-  padding: 0.6rem 0.9rem;
+  padding: 0.45rem 0.8rem;
 }
 .box.reply { background: #fffbe6; }
 .box.reply[data-filled='true'] { background: #e6fff5; }
 .box-title { margin: 0 0 0.4rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.sys summary.box-title { margin: 0; cursor: pointer; }
+.sys[open] summary.box-title { margin-bottom: 0.4rem; }
 .box pre { margin: 0; font-size: 0.85rem; line-height: 1.5; color: #1a1a1a; background: none; padding: 0; }
 .schema-edit {
   width: 100%;
@@ -126,4 +135,6 @@ input {
 .empty { margin: 0; color: #999; font-style: italic; font-size: 0.85rem; }
 html.dark .demo .status { color: #94a3b8; }
 html.dark .demo .box p.box-title { color: #888; }
+html.dark .demo .box summary.box-title { color: #888; }
+html.dark .demo .box p.empty { color: #999; }
 </style>
