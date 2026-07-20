@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { createSession } from '../composables/builtInAi'
 
-const request = ref('Mo pou zwenn Sarah vandredi 3er kot Flying Dodo')
+const request = ref('Ballu Harami is the best song of the year 2026')
 const output = ref('')
 const status = ref('')
 const busy = ref(false)
@@ -10,18 +10,19 @@ const busy = ref(false)
 // both the persona and the contract are editable on the slide
 const systemPrompt = ref(
   'You extract structured details from short messages. Messages may be in '
-  + 'English, French or Mauritian Creole ("vandredi" = Friday, "3er" = 3 o\'clock, '
-  + '"kot" = at). Answer in English; times like "Friday, 3 pm"; places as just the place name.',
+  + 'English, French or Mauritian Creole. Be literal: only report what the '
+  + 'message actually says, in English.',
 )
 
 const schemaText = ref(`{
   "type": "object",
   "properties": {
-    "who":   { "type": "string" },
-    "when":  { "type": "string" },
-    "where": { "type": "string" }
+    "song":      { "type": "string" },
+    "year":      { "type": "integer" },
+    "sentiment": { "type": "string",
+                   "enum": ["positive", "negative", "neutral"] }
   },
-  "required": ["who", "when", "where"]
+  "required": ["song", "year", "sentiment"]
 }`)
 
 async function run() {
