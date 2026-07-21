@@ -10,7 +10,7 @@ layout: center
     <span class="dot" style="background:#ff6b4a"></span>
     <span class="dot" style="background:#ffd700"></span>
     <span class="dot" style="background:#00d68f"></span>
-    <span class="url">https://the-web.mu</span>
+    <span class="url">https://coders.mu</span>
   </div>
   <img src="/images/spider-wide.jpeg" alt="" class="browser-view view-transition-spider">
 </div>

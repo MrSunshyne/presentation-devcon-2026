@@ -7,10 +7,11 @@ clicks: 1
 
 <div class="mt-6"></div>
 
-- browsers, then and now
-- the **Prompt API** - a model in your browser
-- the **Task APIs** - summarize, translate, write
+- sup 👀
+- **Prompt API** - a model in your browser
+- **Task APIs** - summarize, translate, write
 - **WebMCP** - when agents visit your website
+- questions
 
 <DemoRain />
 
