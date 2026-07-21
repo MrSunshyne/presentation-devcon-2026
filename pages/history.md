@@ -5,10 +5,64 @@ layout: center
 
 # The browser is a window {.inline-block.view-transition-title}
 
+<div class="browser-frame">
+  <div class="browser-bar">
+    <span class="dot" style="background:#ff6b4a"></span>
+    <span class="dot" style="background:#ffd700"></span>
+    <span class="dot" style="background:#00d68f"></span>
+    <span class="url">https://the-web.mu</span>
+  </div>
+  <img src="/images/spider-wide.jpeg" alt="" class="browser-view view-transition-spider">
+</div>
+
 <p class="op-70">through which you can see the web.</p>
 
+<style>
+.browser-frame {
+  width: min(58%, 560px);
+  margin: 1.2rem auto 0.8rem;
+  border: 4px solid #000;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+  text-align: left;
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  background: #f1f5f9;
+  border-bottom: 3px solid #000;
+}
+.browser-bar .dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+.browser-bar .url {
+  margin-left: 0.6rem;
+  flex: 1;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 999px;
+  padding: 0.05rem 0.8rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #1a1a1a;
+}
+.browser-view {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+</style>
+
 <!--
-For 30 years the browser was a viewport. The web happened on the other side of the glass.
+The photo from the previous slide shrinks into the browser chrome - the window becomes THE window. For 30 years this was the whole job: a viewport. The web happened on the other side of the glass.
 -->
 
 ---

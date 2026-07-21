@@ -1,10 +1,11 @@
 ---
 layout: none
+transition: view-transition
 ---
 
 <div class="spider-wrap">
-  <img src="/images/spider-wide.jpeg" alt="" class="spider-img">
-  <h1 class="spider-title">What is a<br>web&nbsp;browser&nbsp;?</h1>
+  <img src="/images/spider-wide.jpeg" alt="" class="spider-img view-transition-spider">
+  <h1 class="spider-title">What is a<br>Web&nbsp;Browser&nbsp;?</h1>
 </div>
 
 <style>
