@@ -18,6 +18,27 @@ Three takeaways, one each. Bookends the opening slide.
 layout: default
 ---
 
+# Also cooking
+
+<div class="mt-6"></div>
+
+- **Embedding API** - semantic search on-device, explainer stage
+- **WebNN** - bring your own model, on the real standards track
+- the **Prompt API** already takes **images & audio** as input
+
+<div v-click class="mt-10 text-2xl font-bold text-theme-orange">
+Today's explainer is next year's origin trial.
+</div>
+
+<!--
+Embedding API: on-device embeddings - similarity, semantic search, client-side RAG over your own data. Lives in explainers-by-googlers - the same nursery WebMCP grew up in, back when it was called script-tools. WebNN: the layer below all of this, and unlike the Prompt API it's in an actual W3C Working Group. Multimodal: shipped, not future - same prompt() call, content parts instead of a string.
+If asked "what about users without the model": Firebase AI Logic hybrid - PREFER_ON_DEVICE with cloud fallback.
+-->
+
+---
+layout: default
+---
+
 # What to watch
 
 <div class="mt-6"></div>
