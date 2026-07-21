@@ -3,7 +3,7 @@ layout: none
 ---
 
 <div class="spider-wrap">
-  <img src="/images/spider.jpeg" alt="" class="spider-img">
+  <img src="/images/spider-wide.jpeg" alt="" class="spider-img">
   <h1 class="spider-title">What is a<br>web&nbsp;browser&nbsp;?</h1>
 </div>
 
@@ -18,11 +18,11 @@ layout: none
   overflow: hidden;
 }
 .spider-img {
+  width: 100%;
   height: 100%;
-  width: auto;
-  object-fit: contain;
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  object-fit: cover;
+  mask-image: linear-gradient(to right, transparent, black 40%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
 }
 .spider-title {
   position: absolute;
