@@ -59,14 +59,6 @@ const current = dimensions[props.size]
         class="card-layer card-layer-white bg-white rounded-12px border-4 border-black shadow-2xl flex flex-col overflow-hidden"
         style="view-transition-name: card-layer-white"
       >
-        <!-- Green asterisk accent -->
-        <div 
-          class="absolute top-30px right-30px text-64px font-bold text-theme-green leading-none z-10"
-          style="view-transition-name: asterisk-accent"
-        >
-          *
-        </div>
-        
         <!-- Content area -->
         <div 
           class="flex-1 overflow-auto"

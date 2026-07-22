@@ -84,6 +84,13 @@ export async function registerDeckTools(nav: NavLike) {
     },
   ]
 
+  ;(window as any).deckTools = deckTools
+  ;(window as any).callDeckTool = (name: string, args: any = {}) => {
+    const tool = tools.find(t => t.name === name)
+    if (!tool) throw new Error(`No tool "${name}". Have: ${tools.map(t => t.name).join(', ')}`)
+    return tool.execute(args)
+  }
+
   for (const tool of tools) {
     try {
       await mc.registerTool(tool)

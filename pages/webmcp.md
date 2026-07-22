@@ -3,7 +3,7 @@ transition: view-transition
 layout: center
 ---
 
-# The next user of your website is an agent {.inline-block.view-transition-title}
+# The next user of your website is an <span class="text-theme-orange">agent</span> {.inline-block.view-transition-title}
 
 <!--
 Second act - same title as my blog post on this. Agents already browse: they book, compare, order, fill forms. The question is what we give them to work with.

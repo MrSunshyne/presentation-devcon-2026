@@ -44,14 +44,6 @@ const imgClass = computed(() => props.imageClass || 'object-cover w-full h-full'
             class="absolute w-full h-full top-0 left-0 bg-white rounded-12px border-4 border-black shadow-2xl z-3 flex flex-col overflow-hidden"
             style="view-transition-name: card-layer-white"
           >
-            <!-- Green asterisk accent -->
-            <div 
-              class="absolute top-30px right-30px text-64px font-bold text-theme-green leading-none z-10"
-              style="view-transition-name: asterisk-accent"
-            >
-              *
-            </div>
-            
             <!-- Left column content -->
             <div class="flex-1 p-60px pt-60px pb-60px pl-100px pr-60px overflow-auto layout-image-right">
               <slot />
