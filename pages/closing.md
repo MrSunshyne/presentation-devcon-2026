@@ -73,12 +73,33 @@ Every demo in this talk is a public repo you can run with a static file server. 
 -->
 
 ---
-layout: center
+layout: image-right
+image: images/jiji.jpeg
+imageClass: object-cover w-full h-full [transform:scaleX(-1)]
 ---
 
 # Questions ?
 
-<p class="op-70">Sandeep Ramgolam · <strong>@MrSunshyne</strong> · sandeep.ramgolam.com</p>
+<div class="mt-6 space-y-2">
+  <!-- <p class="text-2xl font-bold mb-1">Sandeep Ramgolam</p> -->
+  <p class="text-2xl font-bold mb-1">You can find me here</p>
+  <div class="text-lg space-y-2 mt-8">
+    <a href="https://www.linkedin.com/in/sandeep-ramgolam-bb18b526" target="_blank" class="grid grid-cols-[25px_1fr] gap-2 !border-none">
+      <carbon:logo-linkedin class="text-blue-500" />
+      <strong>LinkedIn: Sandeep Ramgolam</strong>
+    </a>
+    <a href="https://sandeep.ramgolam.com" target="_blank" class="grid grid-cols-[25px_1fr] gap-2 !border-none">
+      <carbon:blog class="text-teal-500" />
+      Website: sandeep.ramgolam.com
+    </a>
+  </div>
+  <div class="text-lg space-y-2 mt-4">
+    <div class="grid grid-cols-[25px_1fr] gap-2">
+      <carbon:code />
+      <span class="text-blue-500">Meetups: Coders.mu</span>
+    </div>
+  </div>
+</div>
 
 <!--
 Questions - or come find me, I have dholl puri opinions.

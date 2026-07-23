@@ -35,6 +35,19 @@ Two lines plus a parse. The schema is a plain JSON Schema object. Also takes ima
 -->
 
 ---
+layout: default
+---
+
+# Nobody likes filling forms
+
+<FormFillDemo />
+
+<!--
+Same trick, pointed at a real chore: the schema mirrors the form - one property per field, an enum for the dropdown - so whatever the visitor rambles, responseConstraint hands back exactly the fields the form needs. Paste the message, hit fill, watch it type itself. The seats field comes back as an integer, the diet as one of the four allowed values - the select can't receive a value it doesn't have.
+Live edits: delete the email from the message and rerun - the system prompt says missing details come back empty, so the field stays blank instead of hallucinating. Or rewrite the message in French/Kreol - same form. This is the "form autofill from a pasted paragraph" idea made real, and it never leaves the tab - no visitor data goes to any server.
+-->
+
+---
 transition: view-transition
 layout: center
 ---
@@ -199,26 +212,6 @@ const polished = await rewriter.rewrite(draft);
 
 <!--
 Writer authors from a brief with absolute dials; Rewriter nudges existing text with relative ones. Swap tone for length: 'shorter' - same shape.
--->
-
----
-layout: default
----
-
-# Note
-
-<div class="mt-6"></div>
-
-- `Writer` · `Rewriter` - origin trial ended at Chrome 148
-- `Proofreader` - origin trial ended at 145
-- not shipped, not killed - waiting
-
-<div v-click class="mt-10 text-2xl font-bold text-theme-orange">
-Upgrading Chrome makes them <em>disappear</em>, not appear.
-</div>
-
-<!--
-Fun quirk: on Chrome 149 stable these globals don't exist at all - people assume "newer Chrome = more APIs" and it's the opposite here. Flags bring them back for demos. Lesson: origin-trial APIs are rentals, not purchases.
 -->
 
 ---

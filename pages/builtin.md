@@ -12,7 +12,7 @@ layout: default
 - **free** - no API key, no tokens, no bill
 
 <div v-click class="mt-10 text-2xl font-bold text-theme-orange">
-And it's small. It won't write your thesis.
+And it's small. It won't write vibe code your next SaaS Business.
 </div>
 
 <!--

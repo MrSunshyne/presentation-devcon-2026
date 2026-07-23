@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { createSession } from '../composables/builtInAi'
 
-const request = ref('Ballu Harami is the best song of the year 2026')
+const request = ref('Spain defeated Argentina in the Fifa World Cup Final 2026')
 const output = ref('')
 const status = ref('')
 const busy = ref(false)
@@ -10,19 +10,17 @@ const busy = ref(false)
 // both the persona and the contract are editable on the slide
 const systemPrompt = ref(
   'You extract structured details from short messages. Messages may be in '
-  + 'English, French or Mauritian Creole. Be literal: only report what the '
-  + 'message actually says, in English.',
+  + 'English, French or Mauritian Creole.  Extract the winner and loser and the year for me',
 )
 
 const schemaText = ref(`{
   "type": "object",
   "properties": {
-    "song":      { "type": "string" },
-    "year":      { "type": "integer" },
-    "sentiment": { "type": "string",
-                   "enum": ["positive", "negative", "neutral"] }
+    "winner": { "type": "string" },
+    "loser": { "type": "string" },
+    "year": { "type": "integer" }
   },
-  "required": ["song", "year", "sentiment"]
+  "required": ["winner", "loser", "year"]
 }`)
 
 async function run() {
